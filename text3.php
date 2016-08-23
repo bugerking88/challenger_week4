@@ -8,11 +8,21 @@ $mapWeight = 10;
 $returnArray = explode('N', $map);
 $contStr = strlen($map);
 
-//判斷$map給的長度是否正確
-if ($contStr == 109) {
+//判斷$map給的長度是否正確,最後有沒有N
+if ($contStr == 109 ) {
     echo "字串符合長度".",";
 } else {
     echo "長度不合規定";
+    if (substr($map, -1) == "N") {
+    echo "最後一個字元不能是N";
+    exit();
+    }
+    exit();
+}
+
+//判斷是否有非法字元
+if (!preg_match("/^([0-9MN]+)$/", $map)) {
+    echo "裡面有非法字元";
     exit();
 }
 
