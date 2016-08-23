@@ -9,7 +9,7 @@ $returnArray = explode('N', $map);
 $contStr = strlen($map);
 
 //判斷$map給的長度是否正確,最後有沒有N
-if ($contStr == 109 ) {
+if ($contStr = 109 ) {
     echo "";
 } else {
     echo "不符合，因為長度不合規定";
