@@ -9,21 +9,23 @@ $returnArray = explode('N', $map);
 $contStr = strlen($map);
 
 //判斷$map給的長度是否正確,最後有沒有N
-if ($contStr = 109 ) {
-    echo "";
+if ($contStr == 109 ) {
+
 } else {
-    echo "不符合，因為長度不合規定";
+    echo "不符合，因為長度不合規定,長度是".$contStr;
     if (substr($map, -1) == "N") {
-    echo "最後一個字元不能是N";
-    exit();
+    echo "，斷行次數錯誤，最後一個有N";
     }
-    exit();
+}
+
+//判斷是否有非法字元
+if (!preg_match("/^([0-9A-Z]+)$/", $map)) {
+    echo "地雷大小寫有錯";
 }
 
 //判斷是否有非法字元
 if (!preg_match("/^([0-9MN]+)$/", $map)) {
-    echo "不符合，因為裡面有非法字元";
-    exit();
+    echo "，裡面有非法字元";
 }
 
 //建立原本陣列
@@ -39,7 +41,7 @@ for ($x=0; $x<$mapHight; $x++){
 //判斷有幾顆炸彈
 for ($a = 0; $a < $mapHight; $a++) {
     for ($b = 0; $b < $mapWeight; $b++) {
-        if ($preArray[$a][$b] == "M") {
+        if ($preArray[$a][$b] == "M" || $preArray[$a][$b] == "m" ) {
             $count++;
         }
     }
@@ -47,8 +49,8 @@ for ($a = 0; $a < $mapHight; $a++) {
 if($count == 40) {
     echo "";
 } else {
-    echo "不符合，因為炸彈數量不正確";
-    exit();
+    echo "不符合，炸彈數量不正確,只有".$count."顆";
+    exit;
 }
 
 
@@ -107,14 +109,14 @@ for ($a = 0; $a < $mapHight; $a++) {
 if ($result == $map) {
     echo "符合。";
 } else {
-    echo "不符合，因為";
+    echo "數字對應有錯，";
 }
 
 //找錯誤的位置
 for ($a = 0; $a < $mapHight; $a++) {
     for ($b = 0; $b < $mapWeight; $b++) {
         if ($preArray[$a][$b]!=$origiArray[$a][$b]) {
-            echo "第[".$a."]"."[".$b."]"."位置的數字有錯誤";
+            echo "第[".$a."]"."[".$b."]"."位置的數字應該為".$preArray[$a][$b];
         }
     }
 }
