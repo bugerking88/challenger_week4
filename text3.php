@@ -19,12 +19,12 @@ if ($contStr == 109 ) {
 }
 
 //判斷是否有非法字元
-if (!preg_match("/^([0-9A-Z]+)$/", $map)) {
+if (!preg_match("/^([0-8A-Z]+)$/", $map)) {
     echo "地雷大小寫有錯";
 }
 
 //判斷是否有非法字元
-if (!preg_match("/^([0-9MN]+)$/", $map)) {
+if (!preg_match("/^([0-8MN]+)$/", $map)) {
     echo "，裡面有非法字元";
 }
 
