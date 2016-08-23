@@ -49,8 +49,7 @@ for ($a = 0; $a < $mapHight; $a++) {
 if($count == 40) {
     echo "";
 } else {
-    echo "不符合，炸彈數量不正確,只有".$count."顆";
-    exit;
+    echo "不符合，炸彈數量不正確,只有".$count."顆，";
 }
 
 
