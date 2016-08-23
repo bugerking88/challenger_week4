@@ -83,6 +83,9 @@ for($a = 0; $a < $mapHight; $a++) {
             }
         }
     }
+    // if ($preArray[$a][$b] !== $origiArray[$a][$b]) {
+    //     echo "位置有誤";
+    // }
 }
 
 //判斷是否為正確地雷地圖
