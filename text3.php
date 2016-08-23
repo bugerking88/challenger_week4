@@ -97,4 +97,6 @@ for ($a = 0; $a < $mapHight; $a++) {
 }
 if ($result == $map) {
     echo "正確";
+} else {
+    echo "錯誤";
 }
