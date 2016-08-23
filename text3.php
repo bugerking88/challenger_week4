@@ -10,9 +10,9 @@ $contStr = strlen($map);
 
 //判斷$map給的長度是否正確,最後有沒有N
 if ($contStr == 109 ) {
-    echo "字串符合長度".",";
+    echo "";
 } else {
-    echo "長度不合規定";
+    echo "不符合，因為長度不合規定";
     if (substr($map, -1) == "N") {
     echo "最後一個字元不能是N";
     exit();
@@ -22,7 +22,7 @@ if ($contStr == 109 ) {
 
 //判斷是否有非法字元
 if (!preg_match("/^([0-9MN]+)$/", $map)) {
-    echo "裡面有非法字元";
+    echo "不符合，因為裡面有非法字元";
     exit();
 }
 
@@ -45,9 +45,9 @@ for ($a = 0; $a < $mapHight; $a++) {
     }
 }
 if($count == 40) {
-    echo "炸彈數量符合".",";
+    echo "";
 } else {
-    echo "炸彈數量不正確";
+    echo "不符合，因為炸彈數量不正確";
     exit();
 }
 
@@ -105,16 +105,16 @@ for ($a = 0; $a < $mapHight; $a++) {
     }
 }
 if ($result == $map) {
-    echo "正確";
+    echo "符合。";
 } else {
-    echo "炸彈位置有誤";
+    echo "不符合，因為";
 }
 
 //找錯誤的位置
 for ($a = 0; $a < $mapHight; $a++) {
     for ($b = 0; $b < $mapWeight; $b++) {
         if ($preArray[$a][$b]!=$origiArray[$a][$b]) {
-            echo "第[".$a."]"."[".$b."]"."錯誤";
+            echo "第[".$a."]"."[".$b."]"."位置的數字有錯誤";
         }
     }
 }
